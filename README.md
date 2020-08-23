@@ -36,14 +36,29 @@ Things you may want to cover:
 | first_name       | string  | null: false |
 | family_name_kana | string  | null: false |
 | first_name_kana  | string  | null: false |
-| birthday​         | integer | null: false | 
+| birthday​         | date    | null: false | 
 
 ### Association
 
 - has_many :items
 - has_many :shoppings
 
+
 ## shoppings テーブル
+
+| Column          | Type       | Options           |
+| --------------- | ---------- | ----------------- |
+| user_id         | references | foreign_key: true |
+| item_id​         | references | foreign_key: true | 
+
+### Association
+
+- belongs_to :user
+- has_one    :items
+- has_one    :Address
+
+
+## Address テーブル
 
 | Column          | Type       | Options           |
 | --------------- | ---------- | ----------------- |
@@ -51,16 +66,13 @@ Things you may want to cover:
 | prefecture_code | string     | null: false       |
 | city            | string     | null: false       |
 | house_number    | string     | null: false       |
-| building_name   | string     | null: false       |
+| building_name   | string     |                   |
 | phone_number    | string     | null: false       |
-| user_id         | references | foreign_key: true |
-| item_id​         | references | foreign_key: true | 
-
 
 ### Association
 
-- belongs_to :user
-- has_one    :items
+- belongs_to  :items
+- belongs_to  :Address
 
 
 ## items テーブル
@@ -69,16 +81,20 @@ Things you may want to cover:
 | --------------- | ----------- | ----------------- |
 | name            |  string     | null: false       |
 | image           |  string     | null: false       |
-| explanation     |  string     | null: false       |
-| category        |  string     | null: false       |
-| condition       |  string     | null: false       |
-| delivery        |  string     | null: false       |
-| shipping_origin |  string     | null: false       |
-| arrival_days    |  integer    | null: false       | 
-| price           |  integer    | null: false       | 
-| user_id         |  references | foreign_key: true | 
+| explanation     |  text       | null: false       |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :shopping
+
+
+##  Active::Hash
+
+| category        |
+| condition       |
+| delivery        |
+| shipping_origin |
+| arrival_days    |
+| price           |
+| user_id         |
