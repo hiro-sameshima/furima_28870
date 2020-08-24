@@ -60,13 +60,15 @@ Things you may want to cover:
 
 ## Addresses テーブル
 
-| Column          | Type       | Options           |
-| --------------- | ---------- | ----------------- |
-| postal_code     | string     | null: false       |
-| city            | string     | null: false       |
-| house_number    | string     | null: false       |
-| building_name   | string     |                   |
-| phone_number    | string     | null: false       |
+| Column             | Type       | Options           |
+| ------------------ | ---------- | ----------------- |
+| postal_code        | string     | null: false       |
+| city               | string     | null: false       |
+| house_number       | string     | null: false       |
+| building_name      | string     |                   |
+| phone_number       | string     | null: false       |
+| prefecture_code_id | integer    | null: false       |
+
 
 ### Association
 
@@ -83,6 +85,10 @@ Things you may want to cover:
 | explanation     |  text       | null: false       |
 | price           |  integer    | null: false       |
 | user            |  references | foreign_key: true |
+| category_id     |  integer    | null: false       |
+| condition_id    |  integer    | null: false       |
+| delivery_id     |  integer    | null: false       |
+| arrival_days    |  integer    | null: false       |
 
 ### Association
 
@@ -90,11 +96,15 @@ Things you may want to cover:
 - has_one :shopping
 
 
-##  Active::Hash
+##  以下の項目は基本変更されないデータのためActive::Hashを使用しidで管理します
 
-| category        |  string     | null: false       |	
-| condition       |  string     | null: false       |	
-| delivery        |  string     | null: false       |	
-| shipping_origin |  string     | null: false       |	
-| arrival_days    |  integer    | null: false       | 
-| prefecture_code |  integer    | null: false       |
+### Addressesテーブルで必要な都道府県情報はprefecture_codeモデルを生成し〇〇_idで管理します。
+### 「都道府県」 app/models/prefecture.rb
+
+### itemsテーブルで必要なデータは以下のように扱います。「商品カテゴリー」、「状態」、「配送料負担」、「発送地域」、「発送までの日数」は、基本変更されないデータのため以下モデルを作成し、 〇〇_idで管理します。
+
+### 「商品カテゴリー」    app/models/category.rb
+### 「状態」           app/models/condition.rb
+### 「配送料の負担」     app/models/delivery.rb
+### 「発送地域」        app/models/shipping_origin.rb
+### 「発送までの日数」   app/models/arrival_days.rb
