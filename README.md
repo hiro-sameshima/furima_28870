@@ -48,22 +48,21 @@ Things you may want to cover:
 
 | Column          | Type       | Options           |
 | --------------- | ---------- | ----------------- |
-| user_id         | references | foreign_key: true |
-| item_id​         | references | foreign_key: true | 
+| user            | references | foreign_key: true |
+| item            | references | foreign_key: true | 
 
 ### Association
 
 - belongs_to :user
-- has_one    :items
+- has_one    :item
 - has_one    :Address
 
 
-## Address テーブル
+## Addresses テーブル
 
 | Column          | Type       | Options           |
 | --------------- | ---------- | ----------------- |
 | postal_code     | string     | null: false       |
-| prefecture_code | string     | null: false       |
 | city            | string     | null: false       |
 | house_number    | string     | null: false       |
 | building_name   | string     |                   |
@@ -71,8 +70,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to  :items
-- belongs_to  :Address
+- belongs_to  :item
+- belongs_to  :shopping
 
 
 ## items テーブル
@@ -82,19 +81,20 @@ Things you may want to cover:
 | name            |  string     | null: false       |
 | image           |  string     | null: false       |
 | explanation     |  text       | null: false       |
+| price           |  integer    | null: false       |
+| user            |  references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :shopping
+- has_one :shopping
 
 
 ##  Active::Hash
 
-| category        |
-| condition       |
-| delivery        |
-| shipping_origin |
-| arrival_days    |
-| price           |
-| user_id         |
+| category        |  string     | null: false       |	
+| condition       |  string     | null: false       |	
+| delivery        |  string     | null: false       |	
+| shipping_origin |  string     | null: false       |	
+| arrival_days    |  integer    | null: false       | 
+| prefecture_code |  integer    | null: false       |
