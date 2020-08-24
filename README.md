@@ -68,6 +68,7 @@ Things you may want to cover:
 | building_name      | string     |                   |
 | phone_number       | string     | null: false       |
 | prefecture_code_id | integer    | null: false       |
+| shopping           | references | null: false       |
 
 
 ### Association
@@ -78,17 +79,18 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column          | Type        | Options           |
-| --------------- | ----------- | ----------------- |
-| name            |  string     | null: false       |
-| image           |  string     | null: false       |
-| explanation     |  text       | null: false       |
-| price           |  integer    | null: false       |
-| user            |  references | foreign_key: true |
-| category_id     |  integer    | null: false       |
-| condition_id    |  integer    | null: false       |
-| delivery_id     |  integer    | null: false       |
-| arrival_days    |  integer    | null: false       |
+| Column             | Type        | Options           |
+| ------------------ | ----------- | ----------------- |
+| name               |  string     | null: false       |
+| image              |  string     | null: false       |
+| explanation        |  text       | null: false       |
+| price              |  integer    | null: false       |
+| user               |  references | foreign_key: true |
+| category_id        |  integer    | null: false       |
+| condition_id       |  integer    | null: false       |
+| delivery_id        |  integer    | null: false       |
+| shipping_origin_id |  integer    | null: false       |
+| arrival_days       |  integer    | null: false       |
 
 ### Association
 
