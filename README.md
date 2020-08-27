@@ -96,6 +96,36 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :shopping
 
+<!--
+## Active Storageを用いた場合のテーブル設計
+
+| Column             | Type        | Options                       |
+| ------------------ | ----------- | ----------------------------- |
+| name               |  string     | null: false                   |
+| explanation        |  text       | null: false                   |
+| price              |  integer    | null: false                   |
+| user               |  references | foreign_key: true null: false |
+| category_id        |  integer    | null: false                   |
+| condition_id       |  integer    | null: false                   |
+| delivery_id        |  integer    | null: false                   |
+| shipping_origin_id |  integer    | null: false                   |
+| arrival_days       |  integer    | null: false                   |
+
+### Association
+- belongs_to :user
+- has_one :shopping
+- has_one_attached
+
+ActiveRecord
+| Column             | Type        | Options                       |
+| ------------------ | ----------- | ----------------------------- |
+| image              |  string     | null: false                   | 
+
+
+
+
+-->
+
 
 ##  以下の項目は基本変更されないデータのためActive::Hashを使用しidで管理します
 
