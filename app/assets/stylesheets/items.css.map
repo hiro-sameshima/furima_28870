@@ -4,6 +4,6 @@
     "sources": [
         "items.scss"
     ],
-    "names": [],
+    // "names": [],
     "file": "items.css"
 }
