@@ -1,50 +1,16 @@
 class CreateItems < ActiveRecord::Migration[6.0]
   def change
     create_table :items do |t|
-
+      t.string :name,                 null: false
+      t.text :explanation,            null: false
+      t.integer :price,               null: false
+      t.references :user,             foreign_key: true, null: false
+      t.integer :category_id,         null: false
+      t.integer :condition_id,        null: false
+      t.integer :delivery_id,         null: false
+      t.integer :shipping_origin_id,  null: false
+      t.integer :arrival_days,        null: false
       t.timestamps
     end
   end
 end
-## items テーブル
-
-| Column             | Type        | Options                       |
-| ------------------ | ----------- | ----------------------------- |
-| name               |  string     | null: false                   |
-| explanation        |  text       | null: false                   |
-| price              |  integer    | null: false                   |
-| user               |  references | foreign_key: true null: false |
-| category_id        |  integer    | null: false                   |
-| condition_id       |  integer    | null: false                   |
-| delivery_id        |  integer    | null: false                   |
-| shipping_origin_id |  integer    | null: false                   |
-| arrival_days       |  integer    | null: false                   |
-
-### Association
-
-- belongs_to :user
-- has_one :shopping
-
- Active Storageを用いた場合のテーブル設計
-
-| Column             | Type        | Options                       |
-| ------------------ | ----------- | ----------------------------- |
-| name               |  string     | null: false                   |
-| explanation        |  text       | null: false                   |
-| price              |  integer    | null: false                   |
-| user               |  references | foreign_key: true null: false |
-| category_id        |  integer    | null: false                   |
-| condition_id       |  integer    | null: false                   |
-| delivery_id        |  integer    | null: false                   |
-| shipping_origin_id |  integer    | null: false                   |
-| arrival_days       |  integer    | null: false                   |
-
-### Association
-- belongs_to :user
-- has_one :shopping
-- has_one_attached
-
-ActiveRecord
-| Column             | Type        | Options                       |
-| ------------------ | ----------- | ----------------------------- |
-| image              |  string     | null: false                   | 
