@@ -20,8 +20,18 @@ class ItemsController < ApplicationController
       render "new"    # バリデーションに弾かれた時
     end
   end
+# Ajaxからのヒント
+  # def commissioned
+  #   item = Item.find(params[:id])
+  #   if item.commissioned 
+  #     post.update(commissioned: false)
+  #   else
+  #     post.update(commissioned: true)
+  #   end
 
-
+  #   item = Item.find(params[:id])
+  #   render json: { item: item }
+  # end
   private
   def move_to_index
     redirect_to action: :index unless user_signed_in?
