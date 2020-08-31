@@ -2,11 +2,9 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @items = Item.all
   end
 
   def new
-    @user = User.new #意味ないかも要確認
     @item = Item.new
   end
 
