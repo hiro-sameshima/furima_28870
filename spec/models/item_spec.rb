@@ -24,29 +24,29 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
       end
       it "カテゴリー情報が存在しなければ登録できない" do
-        @item.category = nil
+        @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category is not a number")
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
       end
       it "商品状態の情報が存在しなければ登録できない" do
-        @item.condition = nil
+        @item.condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition is not a number")
+        expect(@item.errors.full_messages).to include("Condition must be other than 0")
       end
       it "配送料負担の情報が存在しなければ登録できない" do
-        @item.delivery = nil
+        @item.delivery_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery is not a number")
+        expect(@item.errors.full_messages).to include("Delivery must be other than 0")
       end
       it "発送元地域の情報が存在しなければ登録できない" do
-        @item.shipping_origin = nil
+        @item.shipping_origin_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping origin is not a number")
+        expect(@item.errors.full_messages).to include("Shipping origin can't be blank")
       end
       it "発送までの日数の情報が存在しなければ登録できない" do
-        @item. arrival_days_id = nil
+        @item. arrival_days_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Arrival days is not a number")
+        expect(@item.errors.full_messages).to include("Arrival days must be other than 0")
       end
       it "商品価格の情報が存在しなければ登録できない" do
         @item.price = nil

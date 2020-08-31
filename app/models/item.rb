@@ -16,12 +16,14 @@ class Item < ApplicationRecord
     validates :explanation
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
   end
-  
+  # with_options numericality: { other_than: 0 } do   
+    # validates :shipping_origin_id
+    validates :shipping_origin_id, numericality: { other_than: 0, message: "can't be blank" }
+  # end
   with_options numericality: { other_than: 0 } do    
-        validates :category_id
-        validates :condition_id 
-        validates :delivery_id
-        validates :shipping_origin_id
-        validates :arrival_days_id
+    validates :category_id
+    validates :condition_id 
+    validates :delivery_id
+    validates :arrival_days_id
   end
 end
