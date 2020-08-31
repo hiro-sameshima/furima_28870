@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
+    @items  = Item.all
   end
 
   def new
@@ -9,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item  = Item.new(item_params)
     if @item.valid?
       @item.save  # バリデーションをクリアした時
       return redirect_to root_path
