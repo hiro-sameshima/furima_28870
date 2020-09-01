@@ -43,9 +43,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping origin can't be blank")
       end
       it '発送までの日数の情報が存在しなければ登録できない' do
-        @item. arrival_days_id = 0
+        @item. arrival_day_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Arrival days must be other than 0')
+        expect(@item.errors.full_messages).to include('Arrival day must be other than 0')
       end
       it '商品価格の情報が存在しなければ登録できない' do
         @item.price = nil
