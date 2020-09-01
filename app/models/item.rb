@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :condition
   belongs_to_active_hash :delivery
   belongs_to_active_hash :shipping_origin
+  belongs_to_active_hash :arrival_day
 
   has_one :shopping
 
@@ -21,6 +22,6 @@ class Item < ApplicationRecord
     validates :category_id
     validates :condition_id
     validates :delivery_id
-    validates :arrival_days_id
+    validates :arrival_day_id
   end
 end

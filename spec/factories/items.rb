@@ -7,7 +7,7 @@ FactoryBot.define do
     condition_id           { '2' }
     delivery_id            { '2' }
     shipping_origin_id { '2' }
-    arrival_days_id { '2' }
+    arrival_day_id { '2' }
     association :user
   end
 end
