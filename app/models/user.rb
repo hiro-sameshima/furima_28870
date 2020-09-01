@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :price, format: {with: /\A[0-9]+\z/, message: "is invalid. Input half-width characters."}
+  validates :price, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters.' }
 
   with_options presence: true do
     validates :name
