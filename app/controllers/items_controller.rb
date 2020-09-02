@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   else
     render 'show'
   end
-
+end
   private
 
   def move_to_index
