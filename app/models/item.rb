@@ -25,3 +25,4 @@ class Item < ApplicationRecord
     validates :arrival_day_id
   end
 end
+
