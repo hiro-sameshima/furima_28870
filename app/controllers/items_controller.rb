@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.order('created_at DESC')
   end
-  
+
   def new
     @item = Item.new
   end
@@ -23,29 +23,30 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def  destroy
+  def destroy
     @item = Item.find(params[:id])
     if @item.valid?
-    @item.destroy
-    redirect_to root_path
-  else
-    render 'show'
+      @item.destroy
+      redirect_to root_path
+    else
+      render 'show'
     # redirect_to item_path
   end
 end
 
-def edit
-  @item = Item.find(params[:id])
-end
+  def edit
+    @item = Item.find(params[:id])
+  end
 
-def update
-  @item = Item.find(params[:id])
+  def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
-      render 'edit'# バリデーションに弾かれた時
+      render 'edit' # バリデーションに弾かれた時
     end
-end
+  end
+
   private
 
   def move_to_index
