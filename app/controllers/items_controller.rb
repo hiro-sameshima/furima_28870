@@ -36,6 +36,16 @@ end
 def edit
   @item = Item.find(params[:id])
 end
+
+def update
+  @item = Item.find(params[:id])
+    if @item.valid?
+      @item.update(item_params)  # バリデーションをクリアした時
+      redirect_to root_path
+    else
+      render 'show' # バリデーションに弾かれた時
+    end
+end
   private
 
   def move_to_index
