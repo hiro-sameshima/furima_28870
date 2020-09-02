@@ -24,9 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def  destroy
-    item = Item.find(params[:id])
+    @item = Item.find(params[:id])
     if @item.valid?
-    item.destroy
+    @item.destroy
     redirect_to root_path
   else
     render 'show'
