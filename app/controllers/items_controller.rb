@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     redirect_to root_path
   else
     render 'show'
+    # redirect_to item_path
   end
 end
 
@@ -39,11 +40,10 @@ end
 
 def update
   @item = Item.find(params[:id])
-    if @item.valid?
-      @item.update(item_params)  # バリデーションをクリアした時
+    if @item.update(item_params)
       redirect_to root_path
     else
-      render 'show' # バリデーションに弾かれた時
+      render 'edit'# バリデーションに弾かれた時
     end
 end
   private
