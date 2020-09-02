@@ -32,6 +32,10 @@ class ItemsController < ApplicationController
     render 'show'
   end
 end
+
+def edit
+  @item = Item.find(params[:id])
+end
   private
 
   def move_to_index
