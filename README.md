@@ -89,7 +89,7 @@ Things you may want to cover:
 | condition_id       |  integer    | null: false                   |
 | delivery_id        |  integer    | null: false                   |
 | shipping_origin_id |  integer    | null: false                   |
-| arrival_days       |  integer    | null: false                   |
+| arrival_day        |  integer    | null: false                   |
 
 ### Association
 
