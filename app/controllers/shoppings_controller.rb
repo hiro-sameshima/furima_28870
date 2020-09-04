@@ -5,8 +5,13 @@ class ShoppingsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @shopping = Shopping.new(price: shopping_params[:price])
+    # binding.pry
+    # @user = User.find(params[:user_id])
+    @item = Item.find(params[:format])
+    @shopping = Shopping.new(shopping_params[:format])
+    # @shopping = Shopping.new(params[:format])
+    @shopping = @item.user_id,@item.id
+    # @shopping = Shopping.new(shopping_params)
     if @shopping.valid?
       pay_item
       @shopping.save
@@ -19,7 +24,7 @@ class ShoppingsController < ApplicationController
   private
 
   def shopping_params
-    params.permit(:price, :token)
+    params.permit(:item_id, :user_id, :token)
   end
 
   def pay_item
