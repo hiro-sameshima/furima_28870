@@ -33,17 +33,17 @@ ActiveRecord::Schema.define(version: 2020_09_04_031440) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postal_code", null: false
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "building_name"
     t.string "phone_number", null: false
-    t.integer "shipping_orign_id", null: false
+    t.integer "shipping_origin_id", null: false
     t.bigint "shopping_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["shopping_id"], name: "index_adresses_on_shopping_id"
+    t.index ["shopping_id"], name: "index_addresses_on_shopping_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_031440) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "adresses", "shoppings"
+  add_foreign_key "addresses", "shoppings"
   add_foreign_key "items", "users"
   add_foreign_key "shoppings", "items"
   add_foreign_key "shoppings", "users"
