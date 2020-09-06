@@ -4,6 +4,7 @@ class ShoppingAddress
   attr_accessor  :user_id, :item_id, :postal_code, :city, :house_number, :building_name,:shipping_origin_id, :phone_number ,:shopping_id ,:token
 
   with_options presence: true do
+    validates :token, presence: { message: 'can\'t be blank' }
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   end
 

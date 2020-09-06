@@ -4,7 +4,7 @@ class ShoppingsController < ApplicationController
     @item = Item.find(params[:format])
     @shopping = ShoppingAddress.new 
   end
-  
+
   def create
     @item = Item.find(params[:format])
     @shopping = ShoppingAddress.new(shopping_params)
