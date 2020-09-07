@@ -1,5 +1,10 @@
 FactoryBot.define do
   factory :shopping do
-    
-  end
+      user_id       { '2' }
+      item_id       { '2' }
+      id            {'2'}
+
+      association :item
+      association :user
+    end
 end
