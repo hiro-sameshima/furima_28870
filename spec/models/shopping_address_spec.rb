@@ -46,6 +46,11 @@ RSpec.describe ShoppingAddress, type: :model do
         @shopping_address.valid?
         expect(@shopping_address.errors.full_messages).to include("Shipping origin can't be blank")
       end
+      it '都道府県(shipping_origin_id)が0番を選択しても購入出来ない' do
+        @shopping_address.shipping_origin_id = '0'
+        @shopping_address.valid?
+        expect(@shopping_address.errors.full_messages).to include("Shipping origin can't be blank")
+      end
       it '電話番号(phone_number)が空だと購入出来ない' do
         @shopping_address.phone_number = ''
         @shopping_address.valid?
