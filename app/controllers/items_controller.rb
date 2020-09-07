@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :item_choice, only: [:edit, :update, :destroy,:show]
+  before_action :item_choice, only: [:edit, :update, :destroy, :show]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -46,15 +46,15 @@ end
   end
 
   private
-  
+
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
-  
+
   def item_params
     params.require(:item).permit(:name, :explanation, :price, :category_id, :condition_id, :delivery_id, :shipping_origin_id, :arrival_day_id, :image).merge(user_id: current_user.id)
   end
-  
+
   def item_choice
     @item = Item.find(params[:id])
   end

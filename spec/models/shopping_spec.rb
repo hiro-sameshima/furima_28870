@@ -7,7 +7,7 @@ RSpec.describe Shopping, type: :model do
   end
 
   describe '商品購入テスト' do
-    context '購入できる時'  do
+    context '購入できる時' do
       it 'すべて正しく入力すれば保存できる' do
         expect(@shopping).to be_valid
         # expect(@shopping_address).to be_valid
@@ -17,12 +17,12 @@ RSpec.describe Shopping, type: :model do
       it '商品のIDがなければ購入できない' do
         @shopping.item_id = ''
         @shopping.valid?
-        expect(@shopping.errors.full_messages).to include()
+        expect(@shopping.errors.full_messages).to include
       end
       it '購入者のIDがなければ購入出来ない' do
         @shopping.user_id = ''
         @shopping.valid?
-        expect(@shopping.errors.full_messages).to include()
+        expect(@shopping.errors.full_messages).to include
       end
     end
   end

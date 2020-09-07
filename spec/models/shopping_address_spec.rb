@@ -4,7 +4,7 @@ RSpec.describe ShoppingAddress, type: :model do
   before do
     @shopping_address = FactoryBot.build(:shopping_address)
   end
-  
+
   describe '商品購入' do
     context '購入できる' do
       it 'すべての値が正しく入力されていれば購入できること' do
@@ -30,7 +30,7 @@ RSpec.describe ShoppingAddress, type: :model do
       it '郵便番号がハイフンをお使用しないと購入出来ない' do
         @shopping_address.postal_code = '1234567'
         @shopping_address.valid?
-        expect(@shopping_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@shopping_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'cityが空だと購入出来ない' do
         @shopping_address.city = ''
