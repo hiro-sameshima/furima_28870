@@ -8,7 +8,6 @@ RSpec.describe ShoppingAddress, type: :model do
   describe '商品購入' do
     context '購入できる' do
       it 'すべての値が正しく入力されていれば購入できること' do
-        # binding.pry
         expect(@shopping_address).to be_valid
       end
       it '建物名は空でも購入できること' do
