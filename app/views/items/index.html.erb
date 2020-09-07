@@ -134,13 +134,22 @@
         <div class='item-img-content'>
         <%# <%= image_tag "item-sample.png", class: "item-img" %>
         <%= image_tag  item.image, class:'item-img'%>
-
+    <% @shopping.each do |shop|%>
+     <% if shop[:item_id] == item.id %>
+      <div class='sold-out'>
+        <span>Sold Out!!</span>
+      </div>
+      <% end %>
+      <%end %>
+   
           <%# 商品が売れていればsold outの表示 %>
-          <% unless @item.nil? %>
+          <% if item.id == @shopping_id %>
             
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
+          <% else %>
+
           <% end %>
           <%# //商品が売れていればsold outの表示 %>
 
