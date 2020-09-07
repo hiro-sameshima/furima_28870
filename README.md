@@ -67,7 +67,7 @@ Things you may want to cover:
 | house_number       | string     | null: false                   |
 | building_name      | string     |                               |
 | phone_number       | string     | null: false                   |
-| prefecture_code_id | integer    | null: false                   |
+| shopping_origin_id, | integer    | null: false                   |
 | shopping           | references | null: false foreign_key: true |
 
 
@@ -89,7 +89,7 @@ Things you may want to cover:
 | condition_id       |  integer    | null: false                   |
 | delivery_id        |  integer    | null: false                   |
 | shipping_origin_id |  integer    | null: false                   |
-| arrival_days       |  integer    | null: false                   |
+| arrival_day        |  integer    | null: false                   |
 
 ### Association
 
