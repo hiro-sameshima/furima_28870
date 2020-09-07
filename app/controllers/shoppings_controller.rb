@@ -1,7 +1,7 @@
 class ShoppingsController < ApplicationController
+  before_action :item_choice, only: [:index, :create]
   def index
     if user_signed_in?
-      @item = Item.find(params[:format])
       @shopping = ShoppingAddress.new
     else
       redirect_to new_user_session_path
@@ -9,7 +9,6 @@ class ShoppingsController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:format])
     @shopping = ShoppingAddress.new(shopping_params)
     if @shopping.valid?
       pay_item
@@ -33,5 +32,9 @@ class ShoppingsController < ApplicationController
       card: params[:token],                      # カードトークン
       currency: 'jpy'                             # 通貨の種類(日本円)
     )
+  end
+
+  def item_choice
+     @item = Item.find(params[:format])
   end
 end
