@@ -19,7 +19,7 @@ class ShoppingsController < ApplicationController
   private
 
   def shopping_params
-    params.permit(:token, :postal_code, :shipping_origin_id, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id).merge(item_id: @item.id)
+    params.permit(:item,:token, :postal_code, :shipping_origin_id, :city, :house_number, :building_name, :phone_number).merge(user_id: current_user.id).merge(item_id: @item.id)
   end
 
   def pay_item
