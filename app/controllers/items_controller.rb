@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
 
   def show
     @shopping = Shopping.all
-    # binding.pry
   end
 
   def destroy

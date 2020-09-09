@@ -1,6 +1,6 @@
 class ShoppingAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id,:item, :postal_code, :city, :house_number, :building_name, :shipping_origin_id, :phone_number, :shopping_id, :token
+  attr_accessor :user_id, :item_id, :postal_code, :city, :house_number, :building_name, :shipping_origin_id, :phone_number, :shopping_id, :token
 
   with_options presence: true do
     validates :token, presence: { message: 'can\'t be blank' }
@@ -12,7 +12,7 @@ class ShoppingAddress
 
   validates :shipping_origin_id, numericality: { other_than: 0, message: "can't be blank" }
   def save
-    shopping = Shopping.create!(user_id: user_id, item: item_id)
+    shopping = Shopping.create!(user_id: user_id, item_id: item_id)
 
     address = Address.create(
       postal_code: postal_code,
