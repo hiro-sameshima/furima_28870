@@ -1,6 +1,7 @@
 class ShoppingsController < ApplicationController
   before_action :item_choice, only: [:index, :create]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index]
+
   def index
       @shopping = ShoppingAddress.new
   end
@@ -32,6 +33,6 @@ class ShoppingsController < ApplicationController
   end
 
   def item_choice
-     @item = Item.find(params[:format])
+     @item = Item.find(params[:item_id])
   end
 end
