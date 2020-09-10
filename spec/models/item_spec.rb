@@ -23,29 +23,29 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Explanation can't be blank")
       end
       it 'カテゴリー情報が存在しなければ登録できない' do
-        @item.category_id = 0
+        @item.category_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category must be other than 0')
+        expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '商品状態の情報が存在しなければ登録できない' do
-        @item.condition_id = 0
+        @item.condition_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include('Condition must be other than 0')
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it '配送料負担の情報が存在しなければ登録できない' do
-        @item.delivery_id = 0
+        @item.delivery_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include('Delivery must be other than 0')
+        expect(@item.errors.full_messages).to include("Delivery can't be blank")
       end
       it '発送元地域の情報が存在しなければ登録できない' do
-        @item.shipping_origin_id = 0
+        @item.shipping_origin_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping origin can't be blank")
       end
       it '発送までの日数の情報が存在しなければ登録できない' do
-        @item. arrival_day_id = 0
+        @item. arrival_day_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include('Arrival day must be other than 0')
+        expect(@item.errors.full_messages).to include("Arrival day can't be blank")
       end
       it '商品価格の情報が存在しなければ登録できない' do
         @item.price = nil

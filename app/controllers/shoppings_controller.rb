@@ -3,7 +3,8 @@ class ShoppingsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
 
   def index
-      @shopping = ShoppingAddress.new
+    redirect_to root_path if @item.shopping.present?
+    @shopping = ShoppingAddress.new
   end
 
   def create
