@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_origin
   belongs_to_active_hash :arrival_day
 
-  has_one :shopping
+  has_one :shopping ,dependent: :destroy
 
   with_options presence: true do
     validates :name
