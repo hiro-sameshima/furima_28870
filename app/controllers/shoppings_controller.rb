@@ -11,7 +11,7 @@ class ShoppingsController < ApplicationController
     @shopping = ShoppingAddress.new(shopping_params)
     if @shopping.valid?
       pay_item
-      @shopping.save
+      @shopping.save 
       redirect_to root_path
     else
       render 'index'
