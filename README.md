@@ -1,4 +1,7 @@
 # README
+# fumima_28870
+
+<img width="1359" alt="スクリーンショット 2020-09-18 16 37 01" src="https://user-images.githubusercontent.com/64538711/93569948-3d489400-f9cd-11ea-92ad-4026b7923292.png">
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
